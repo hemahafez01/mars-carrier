@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Carrier</title>
+    <script src="./main.js" defer></script>
+    <style>
+        *{
+        background-color: burlywood;
+        }
+        #root{
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .turn{
+            width: 50%;
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            justify-content: space-between;
+        }
+        button{
+            width: 5rem;
+            height: 5rem;
+            margin: 1rem;
+            border: 1px solid #000;
+            border-radius: .5rem;
+            background-color: aquamarine;
+        }
+        #location{
+            background-color: violet;
+            padding: 1rem;
+            border: solid 2px #aaa;
+            border-radius: 1rem;
+        }
+        #location>h3{
+            background-color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div id="input">
+            <label for="location-x"> Assign cardential X</label>
+            <input type="number" id="location-x" value="0">
+            <label for="location-y"> Assign cardential Y</label>
+            <input type="number" id="location-y" value="0">
+            <label for="direction"> Assign direction</label>
+            <input list="direction" id="direction-input" placeholder="choose direction">
+            <datalist id="direction">
+                <option value="North">
+                <option value="East">
+                <option value="South">
+                <option value="West">
+              </datalist>
+              <input type="submit" onclick="input()">
+        </div>
+        <button id="forward" onclick="carrier.forward(); update()">Forward</button>
+        <div class="turn">
+            <button id="turn-left" onclick="carrier.turnLeft(); update()">Turn Left</button>
+            <button id="turn-right" onclick="carrier.turnRight(); update()"">Turn Right</button>
+        </div>
+        <button id="backward" onclick="carrier.backward(); update()">Backward</button>
+        <div >
+            <h3 id="location">Carrier location is</h3>
+        </div>
+    </div>
+</body>
+</html>
